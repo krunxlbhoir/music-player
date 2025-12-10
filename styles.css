@@ -1,0 +1,159 @@
+:root{
+  --bg: #f5f6fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #c93b76;
+  --shadow: 0 8px 20px rgba(85,85,85,0.08);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; /* Added generic fallback */
+  background: linear-gradient(180deg,#f8fafc 0%, #f2f4f8 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.player-container{width:100%; max-width:420px}
+.player-card{
+  background:var(--card);
+  border-radius:16px;
+  padding:20px;
+  box-shadow: var(--shadow);
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  align-items:center;
+}
+
+.cover-wrap{
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+.cover-wrap img{
+  width:100%;
+  max-width:320px;
+  aspect-ratio: 1 / 1; /* Ensures it's always a square */
+  border-radius:12px;
+  object-fit:cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease; /* Added subtle hover effect */
+}
+.cover-wrap:hover img{
+  transform: scale(1.02);
+}
+
+.meta{text-align:center}
+#title{margin:0;font-size:1.1rem; font-weight: 600} /* Bolder title */
+#author{margin:6px 0 0 0;color:var(--muted);font-size:0.9rem}
+
+.progress-time{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.progress-time span{font-size:0.85rem;color:var(--muted); width:42px; text-align:center; user-select: none;}
+#progress{
+  flex:1; 
+  -webkit-appearance:none; 
+  appearance:none; 
+  height:6px; 
+  border-radius:6px; 
+  background:linear-gradient(90deg,var(--accent) 0%, #ddd 0%); 
+  outline:none; 
+  cursor: pointer;
+}
+/* WebKit (Chrome, Safari) */
+#progress::-webkit-slider-thumb{ 
+  -webkit-appearance:none; 
+  width:14px; 
+  height:14px; 
+  border-radius:50%; 
+  background:#fff; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
+  border:3px solid var(--accent);
+  cursor: grab;
+}
+/* Firefox */
+#progress::-moz-range-thumb {
+  width:14px; 
+  height:14px; 
+  border-radius:50%; 
+  background:#fff; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
+  border:3px solid var(--accent);
+  cursor: grab;
+}
+
+.controls{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+/* ... existing styles ... */
+
+.controls{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.control-btn{
+  background:transparent;
+  border:0;
+  /* Removed font-size: 20px, as it was sizing the emoji. */
+  cursor:pointer;
+  padding: 8px; /* Padding for easier clicking area */
+  color: var(--muted); /* Default color from --muted */
+  transition: color 0.1s ease, transform 0.1s ease; 
+  display: flex; /* Ensures SVG is centered */
+  align-items: center;
+  justify-content: center;
+}
+.control-btn:hover {
+    color: var(--accent); /* Change color on hover */
+}
+.control-btn:active {
+    transform: scale(0.95); /* Subtle press effect */
+}
+
+/* Style the SVGs inside the control button */
+.control-btn svg {
+    /* Use the width/height defined in HTML, or set here if needed */
+    width: 24px;
+    height: 24px;
+}
+
+/* ... rest of CSS ... */
+.play-btn{
+  background:var(--accent);
+  border-radius:999px;
+  width:64px;
+  height:64px;
+  display:grid;
+  place-items:center;
+  border:none;
+  cursor:pointer;
+  box-shadow: 0px 8px 16px rgba(201, 59, 118, 0.25);
+  transform:translateY(0);
+  transition:transform .12s ease, box-shadow .12s ease; /* Transition for shadow too */
+}
+.play-btn:active{ 
+  transform:translateY(2px);
+  box-shadow: 0px 4px 8px rgba(201, 59, 118, 0.25); /* Smaller shadow on press */
+}
+
+.play-btn svg{filter:drop-shadow(0 6px 10px rgba(0,0,0,0.12))}
+
+.extras{ width:100%; text-align:center; color:var(--muted); font-size:0.85rem; }
+
+@media (max-width:420px){
+  .player-card{ padding:16px; border-radius:12px }
+  .play-btn{ width:56px; height:56px }
+  #progress::-webkit-slider-thumb, #progress::-moz-range-thumb{ width:12px; height:12px }
+}

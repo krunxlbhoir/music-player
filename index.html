@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Modern Music Player</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="player-container">
+    <div class="player-card">
+      
+      <audio id="audio-source" preload="metadata"></audio>
+
+      <div class="cover-wrap">
+        <img id="cover" src="assets/cover1.jpg" alt="Album cover art" />
+      </div>
+
+      <div class="meta">
+        <h2 id="title">Song Title</h2>
+        <p id="author">Artist name</p>
+      </div>
+
+      <div class="progress-time">
+        <span id="currentTime">0:00</span>
+        <input id="progress" type="range" min="0" max="100" value="0" aria-label="Song progress" />
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button id="prev" class="control-btn" aria-label="Previous song" title="Previous Song">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z" fill="currentColor"/>
+          </svg>
+        </button>
+
+        <button id="play" class="play-btn" aria-label="Play" title="Play/Pause">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path id="playIconPath" d="M6 4.5v15L18 12 6 4.5z" fill="#fff"/>
+          </svg>
+        </button>
+
+        <button id="next" class="control-btn" aria-label="Next song" title="Next Song">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M16 6h2v12h-2V6zm-8.5 6l8.5-6v12l-8.5-6z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="extras">
+        <small id="songIndex">1 / 3</small>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
