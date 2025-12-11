@@ -101,33 +101,46 @@ body{
 .controls{
   display:flex;
   align-items:center;
-  gap:18px;
+  gap: 20px; 
 }
+
+/* New styling for the Prev/Next buttons (Pill Shape) */
 .control-btn{
-  background:transparent;
-  border:0;
-  /* Removed font-size: 20px, as it was sizing the emoji. */
-  cursor:pointer;
-  padding: 8px; /* Padding for easier clicking area */
-  color: var(--muted); /* Default color from --muted */
-  transition: color 0.1s ease, transform 0.1s ease; 
-  display: flex; /* Ensures SVG is centered */
+  background: var(--bg); 
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Very subtle border */
+  
+  /* Create the pill shape */
+  border-radius: 999px; 
+  
+  /* Increased size and padding */
+  padding: 12px 24px; 
+  
+  /* Ensure SVGs are centered */
+  display: flex; 
   align-items: center;
   justify-content: center;
+  
+  /* Color: Use the muted color for the icon inside */
+  color: var(--muted); 
+  cursor:pointer;
+  
+  transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
 }
+
 .control-btn:hover {
-    color: var(--accent); /* Change color on hover */
+    color: var(--accent); /* Icon changes to accent color on hover */
+    background: #eef0f5; /* Background slightly darkens on hover */
 }
 .control-btn:active {
     transform: scale(0.95); /* Subtle press effect */
 }
 
-/* Style the SVGs inside the control button */
+/* Ensure the SVG size remains consistent */
 .control-btn svg {
-    /* Use the width/height defined in HTML, or set here if needed */
-    width: 24px;
-    height: 24px;
+    width: 20px; /* Slightly smaller SVG for the pill button */
+    height: 20px;
 }
+
 
 /* ... rest of CSS ... */
 .play-btn{
@@ -155,5 +168,8 @@ body{
 @media (max-width:420px){
   .player-card{ padding:16px; border-radius:12px }
   .play-btn{ width:56px; height:56px }
+  .control-btn{ 
+    padding: 10px 20px; /* Slightly smaller on mobile */
+  }
   #progress::-webkit-slider-thumb, #progress::-moz-range-thumb{ width:12px; height:12px }
 }
