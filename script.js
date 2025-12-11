@@ -16,7 +16,7 @@ const songs = [
     title: "Born to Shine",
     author: "Diljit Dosanjh",
     src: "assets/songs/Born_To_Shine_1.mp3",
-    img: "assets/cover/Born-To-Shine-1.jpg",
+    img: "assets/cover/born to shine.webp",
   },
   {
     title: "Pehli Nazar Mein",
