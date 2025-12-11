@@ -91,11 +91,6 @@ body{
   cursor: grab;
 }
 
-.controls{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
 /* ... existing styles ... */
 
 .controls{
